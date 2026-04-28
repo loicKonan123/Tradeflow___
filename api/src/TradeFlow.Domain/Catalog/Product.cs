@@ -73,6 +73,20 @@ public class Product : AggregateRoot<ProductId>
         return Result.Success();
     }
 
+    public void UpdateDescription(string longDescriptionMarkdown)
+    {
+        LongDescriptionMarkdown = longDescriptionMarkdown;
+        UpdatedAt = DateTime.UtcNow;
+    }
+
+    public void UpdateDetails(string title, string shortDescription, string longDescriptionMarkdown)
+    {
+        Title = title;
+        ShortDescription = shortDescription;
+        LongDescriptionMarkdown = longDescriptionMarkdown;
+        UpdatedAt = DateTime.UtcNow;
+    }
+
     public void IncrementSalesCount()
     {
         SalesCount++;

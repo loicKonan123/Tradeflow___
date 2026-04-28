@@ -21,6 +21,9 @@ public static class DependencyInjection
 
         services.AddHttpContextAccessor();
         services.AddScoped<ICurrentUserService, CurrentUserService>();
+        services.AddScoped<IOrderNumberService, OrderNumberService>();
+        services.AddScoped<IStripeService, StripeService>();
+        services.AddScoped<IEmailService, EmailService>();
 
         return services;
     }

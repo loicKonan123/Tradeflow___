@@ -36,7 +36,33 @@
 
 ### Sprint 1 — Auth & Customer
 
-#### PR-002 — Firebase Auth frontend + middleware sync Customer ⏳
+#### PR-002 — Backend complet (tous les use cases + controllers + migration) ✅
+**Date :** 2026-04-28
+**Statut :** ✅ Terminé
+
+**Ce qui a été fait :**
+- Entity configurations EF Core : `Product`, `Customer`, `Order`, `OrderItem`, `License` (OwnsOne Money avec conversion Currency)
+- Domain : méthodes `UpdateDetails`, `UpdateDescription` sur Product
+- Commands Catalog : `CreateProduct`, `UpdateProduct`, `PublishProduct`, `ArchiveProduct` + validators FluentValidation
+- Commands Orders : `CreateOrder` (calcul taxes Québec/Canada), `MarkOrderPaid` (crée les licences)
+- Commands Licensing : `GrantLicenseAccess`, `RevokeLicense`
+- Queries : `GetProductsQuery`, `GetProductBySlugQuery`, `GetAdminProductsQuery`, `GetMyOrdersQuery`, `GetAdminOrdersQuery`, `GetMyLicensesQuery`, `GetAdminLicensesQuery` (paginées)
+- Controllers Admin : `AdminCatalogController`, `AdminOrdersController`, `AdminLicensesController`
+- Controllers Customer : `OrdersController`, `LicensesController`
+- Controller Webhook : `StripeWebhookController` (parsing `payment_intent.succeeded`)
+- Services Infrastructure : `OrderNumberService` (TF-2026-XXXX), `StripeService` (stub), `EmailService` (stub)
+- Migration EF Core initiale `InitialCreate` générée
+
+**Dépendances à configurer avant PR-003 (Auth) :**
+- [ ] Créer le projet Firebase → renseigner `Firebase:ProjectId` dans `appsettings.json`
+- [ ] Démarrer Docker Desktop → `docker compose up -d`
+- [ ] Créer le compte Stripe → renseigner `Stripe:WebhookSecret`
+
+---
+
+### Sprint 2 — Auth Firebase
+
+#### PR-003 — Firebase Auth frontend + middleware sync Customer ⏳
 **Objectif :** L'utilisateur peut se connecter avec Google, le backend crée/sync son profil en BDD.
 
 **Tâches :**
