@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .glass-card {
+            background: rgba(16, 32, 52, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .inner-glow {
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#798098",
+                        "surface-container-high": "#1b2b3f",
+                        "tertiary-container": "#001d07",
+                        "on-primary-fixed": "#131b2e",
+                        "background": "#031427",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "on-tertiary": "#003915",
+                        "inverse-on-surface": "#213145",
+                        "on-background": "#d3e4fe",
+                        "on-secondary-fixed": "#001a42",
+                        "on-secondary-container": "#e6ecff",
+                        "secondary-container": "#0566d9",
+                        "surface-bright": "#2a3a4f",
+                        "on-secondary-fixed-variant": "#004395",
+                        "on-surface": "#d3e4fe",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-container-lowest": "#000f21",
+                        "on-tertiary-fixed": "#002109",
+                        "inverse-surface": "#d3e4fe",
+                        "on-surface-variant": "#c6c6cd",
+                        "surface-container-low": "#0b1c30",
+                        "tertiary-fixed": "#6bff8f",
+                        "surface-container": "#102034",
+                        "on-secondary": "#002e6a",
+                        "surface": "#031427",
+                        "secondary": "#adc6ff",
+                        "on-primary": "#283044",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#dae2fd",
+                        "primary-container": "#0f172a",
+                        "inverse-primary": "#565e74",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "surface-container-highest": "#26364a",
+                        "primary": "#bec6e0",
+                        "surface-dim": "#031427",
+                        "surface-tint": "#bec6e0",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-variant": "#26364a",
+                        "tertiary": "#4ae176",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "outline": "#909097",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-error": "#690005",
+                        "outline-variant": "#45464d",
+                        "on-tertiary-container": "#009542"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "gutter": "16px",
+                        "margin": "24px",
+                        "lg": "40px",
+                        "xl": "64px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Space Grotesk"],
+                        "label-mono": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "data-lg": ["Space Grotesk"],
+                        "body-main": ["Inter"],
+                        "h2": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "h1": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "label-mono": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "data-lg": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "body-main": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h2": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-main selection:bg-secondary-container selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+<div class="flex justify-between items-center px-8 py-3 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-50 dark:text-white">TradeFlow</span>
+<div class="hidden md:flex gap-6">
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-blue-400 border-b border-blue-500 font-bold px-2 py-1" href="#">Marketplace</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-slate-400 hover:text-slate-200 transition-colors px-2 py-1" href="#">Services</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-slate-400 hover:text-slate-200 transition-colors px-2 py-1" href="#">About</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-slate-400 hover:text-slate-200 transition-colors px-2 py-1" href="#">Blog</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-slate-400 hover:text-slate-200 transition-colors">Login</button>
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 font-['Space_Grotesk'] uppercase tracking-widest text-xs font-bold active:scale-95 duration-200 ease-in-out hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">Get Started</button>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="pt-24 pb-16 px-8 max-w-screen-2xl mx-auto min-h-screen">
+<!-- Header & Controls -->
+<header class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-8">
+<div>
+<h1 class="font-h1 text-h1 mb-2 tracking-tight">Marketplace de Stratégies <span class="text-secondary">TradingView</span></h1>
+<p class="text-on-surface-variant max-w-2xl font-body-main">Accédez à des systèmes Pine Script de haute performance. Optimisés pour la précision et la gestion du risque institutionnelle.</p>
+</div>
+<div class="flex flex-col gap-4 min-w-[320px]">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant py-3 pl-10 pr-4 text-body-sm font-body-main focus:border-secondary-container focus:ring-1 focus:ring-secondary-container outline-none" placeholder="Rechercher un indicateur..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Filters -->
+<div class="flex flex-wrap items-center gap-4 border-b border-outline-variant/30 pb-6">
+<button class="bg-secondary-container text-white px-6 py-2 rounded-full font-label-mono text-label-mono uppercase tracking-widest">Tout</button>
+<button class="bg-surface-container-low border border-outline-variant/30 text-on-surface-variant hover:border-secondary-container px-6 py-2 rounded-full font-label-mono text-label-mono uppercase tracking-widest transition-all">Indicators</button>
+<button class="bg-surface-container-low border border-outline-variant/30 text-on-surface-variant hover:border-secondary-container px-6 py-2 rounded-full font-label-mono text-label-mono uppercase tracking-widest transition-all">Strategies</button>
+<button class="bg-surface-container-low border border-outline-variant/30 text-on-surface-variant hover:border-secondary-container px-6 py-2 rounded-full font-label-mono text-label-mono uppercase tracking-widest transition-all">Bundles</button>
+<div class="ml-auto flex items-center gap-2 text-on-surface-variant font-label-mono text-[10px] uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[16px]" data-icon="filter_list">filter_list</span>
+                    Trier par: Récents
+                </div>
+</div>
+</header>
+<!-- Product Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="glass-card inner-glow flex flex-col group overflow-hidden hover:border-secondary-container/50 transition-all duration-300">
+<div class="aspect-[4/3] relative overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-500" data-alt="Dark financial chart with glowing neon order flow footprints and volume profile indicators on a TradingView interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoXF0lS5qQRNcMidwT6DRtAPCv76cW1MIVq8ZY7Hs1Wp_Cxk-EczaoLuXLNivlBi767gV17GJKOjR_SLyFpFmXBAuSBmEbeauHUbXArB6cvFcZV5NqND-p5Dveux_OzismJTCTXv7ty9zwEFMlftYED_QnGtzGCUeG7_-Vpbpp6wjv-HuxPV0wbDXTWjMjZrEsJBMLjZYf5Wfg1Pf8lfxXT_vtX_XTGXVsJKuYNjVkLZZC48buBK6rmJElLuV-024sc8mOSoy6g6zl"/>
+<div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md border border-outline-variant/40 px-3 py-1 rounded-full text-[10px] font-label-mono uppercase tracking-wider text-tertiary">Strategy</div>
+<div class="absolute top-3 right-3 bg-secondary-container/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-label-mono uppercase tracking-wider text-white">Top Rated</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-h2 text-lg mb-4 text-on-surface group-hover:text-secondary transition-colors">OF Pro Suite</h3>
+<div class="grid grid-cols-3 gap-2 mb-6 border-y border-outline-variant/20 py-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Win Rate</span>
+<span class="text-tertiary font-data-lg text-lg">68.4%</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Profit Factor</span>
+<span class="text-tertiary font-data-lg text-lg">2.14</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Max DD</span>
+<span class="text-error font-data-lg text-lg">4.2%</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-data-lg text-2xl text-on-surface">49€</span>
+<button class="bg-transparent border border-secondary-container text-secondary hover:bg-secondary-container hover:text-white px-5 py-2 font-label-mono text-[11px] uppercase tracking-widest transition-all">Détails &amp; Achat</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card inner-glow flex flex-col group overflow-hidden hover:border-secondary-container/50 transition-all duration-300">
+<div class="aspect-[4/3] relative overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-500" data-alt="Technical chart with clean volume profile histograms on the right side and price action candlesticks in muted tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXqSvRgmTWLXulUUnUFz1YHgo-onG-JBMUPVpPnE6s5DVJVmPLaMmqqDp0BPn45iSIDwACSZWnZvFtEZELCjoF5H4fbzwqmXToYr1EFWCr29mReO0lWBZbSQBHtZKPtYQo6GvYDGFvMoZfHQoB6y80ApxLqCG0mClBRxxDbi3E1jRK_ZW7tKJ3TpKJ_SHQXPaDyC9woVHQ1wU7p8n54JF-tA65fzOk9HC6vQ4p_-OwzI8uYOZN0yUmjmYjuq_sWLmVdIm00c8NHcQR"/>
+<div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md border border-outline-variant/40 px-3 py-1 rounded-full text-[10px] font-label-mono uppercase tracking-wider text-on-background">Indicator</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-h2 text-lg mb-4 text-on-surface group-hover:text-secondary transition-colors">Volume Profile Master</h3>
+<div class="grid grid-cols-3 gap-2 mb-6 border-y border-outline-variant/20 py-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Accuracy</span>
+<span class="text-on-surface font-data-lg text-lg">N/A</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Levels</span>
+<span class="text-tertiary font-data-lg text-lg">Dynamic</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Lag</span>
+<span class="text-tertiary font-data-lg text-lg">0ms</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-data-lg text-2xl text-on-surface">29€</span>
+<button class="bg-transparent border border-secondary-container text-secondary hover:bg-secondary-container hover:text-white px-5 py-2 font-label-mono text-[11px] uppercase tracking-widest transition-all">Détails &amp; Achat</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card inner-glow flex flex-col group overflow-hidden hover:border-secondary-container/50 transition-all duration-300">
+<div class="aspect-[4/3] relative overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-500" data-alt="Complex trading indicators including RSI, MACD, and custom trend bands overlayed on a dark financial market screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0QXCbw0O9pzq8gbU2BI69Jaomh0zHk0xYxFA_tVWQvQi1c4Fb7VbI3L1ODNfpAP_kDPud-Llvm5WuogIITjLWw2YRhd4MupSVDAGydPKtaSfM-weOV6MKxV51e-xR0kjODmY_it432mRI9wZoVoJuxMZZxX_wFIDvWmLo6KA7xaHSxATWjV3xLIG5qEsLHeJ3G3AoQft9x0TQOgo36_XZAWBDZOCBeK6KEhP9sk1M2XSkJeedHQBe4N8tBp8BNuwoQXAm60BSVNJW"/>
+<div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md border border-outline-variant/40 px-3 py-1 rounded-full text-[10px] font-label-mono uppercase tracking-wider text-tertiary">Strategy</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-h2 text-lg mb-4 text-on-surface group-hover:text-secondary transition-colors">Neural Flux Engine</h3>
+<div class="grid grid-cols-3 gap-2 mb-6 border-y border-outline-variant/20 py-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Win Rate</span>
+<span class="text-tertiary font-data-lg text-lg">72.1%</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">PF</span>
+<span class="text-tertiary font-data-lg text-lg">2.84</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Max DD</span>
+<span class="text-error font-data-lg text-lg">6.1%</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-data-lg text-2xl text-on-surface">89€</span>
+<button class="bg-transparent border border-secondary-container text-secondary hover:bg-secondary-container hover:text-white px-5 py-2 font-label-mono text-[11px] uppercase tracking-widest transition-all">Détails &amp; Achat</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-card inner-glow flex flex-col group overflow-hidden hover:border-secondary-container/50 transition-all duration-300">
+<div class="aspect-[4/3] relative overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist candle chart with bright green and red highlights on liquidation zones and high-interest price levels" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcwkPis9Vda9p-loMwqrE1PaZ_9hM4YTWElmhnfINQg2pOrvNQb-BDvY0Ld_3rcjBBFf_E_z9RWeRus57E2JSz30_TfXAJTxk7p7DN_WycU4jtlxInw1oL6LsTJll4wi8fl4tBGPoBF9SVIvXOJpa7gDXZ4aoIS7cuwNAAUtACKSWAHbwr7N-Dr0YXYyUziU3HQ2_ugPzfFg1C3sVmvFvJAkQ_HMZAEszABEtEoujrsUSbKzugVjzono9FSOwZq7IqWlQy4BKlDvOW"/>
+<div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md border border-outline-variant/40 px-3 py-1 rounded-full text-[10px] font-label-mono uppercase tracking-wider text-secondary">Bundle</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-h2 text-lg mb-4 text-on-surface group-hover:text-secondary transition-colors">Scalper's Toolkit</h3>
+<div class="grid grid-cols-3 gap-2 mb-6 border-y border-outline-variant/20 py-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Assets</span>
+<span class="text-on-surface font-data-lg text-lg">4 Units</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Type</span>
+<span class="text-tertiary font-data-lg text-lg">Hybrid</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Savings</span>
+<span class="text-tertiary font-data-lg text-lg">35%</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-data-lg text-2xl text-on-surface">129€</span>
+<button class="bg-transparent border border-secondary-container text-secondary hover:bg-secondary-container hover:text-white px-5 py-2 font-label-mono text-[11px] uppercase tracking-widest transition-all">Détails &amp; Achat</button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="glass-card inner-glow flex flex-col group overflow-hidden hover:border-secondary-container/50 transition-all duration-300">
+<div class="aspect-[4/3] relative overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-500" data-alt="Stock market heatmap with bright green blocks indicating strength and dark navy blue for stability" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOqtrBPHcA5mbvzxCpNr8sZon5W8PojhuUn_DVTaEgSQtUe6pf07H64qbP8ueB3pyY2B1Z1z1yPZOXJkX515-x6AB-p94qCoLF7Rs_N_I7xLdkYE1CvxoUHK7qzY5uWYbIFmRcq2Hh-co_m9XOIpIkvOGMWSJLfHKKCzScCSQ1v28rcJdhIhyms7R1tLFTC8uYB0yDQd3HO0Olvpamw_ooN03pETj9Sq-N4IrcVO1G4r6k-0EnPOu2oMjLaJnBDoNhQMyjpLXl1aqb"/>
+<div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md border border-outline-variant/40 px-3 py-1 rounded-full text-[10px] font-label-mono uppercase tracking-wider text-on-background">Indicator</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-h2 text-lg mb-4 text-on-surface group-hover:text-secondary transition-colors">Liquidity Mapper</h3>
+<div class="grid grid-cols-3 gap-2 mb-6 border-y border-outline-variant/20 py-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Refresh</span>
+<span class="text-tertiary font-data-lg text-lg">Realtime</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Markets</span>
+<span class="text-on-surface font-data-lg text-lg">All</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Difficulty</span>
+<span class="text-on-surface font-data-lg text-lg">Mid</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-data-lg text-2xl text-on-surface">39€</span>
+<button class="bg-transparent border border-secondary-container text-secondary hover:bg-secondary-container hover:text-white px-5 py-2 font-label-mono text-[11px] uppercase tracking-widest transition-all">Détails &amp; Achat</button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="glass-card inner-glow flex flex-col group overflow-hidden hover:border-secondary-container/50 transition-all duration-300">
+<div class="aspect-[4/3] relative overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-500" data-alt="Abstract data visualization with flowing lines of code and glowing financial metrics against a deep dark blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZlvbjUP7ekDaSwphOjqbNAIY9tOPd7mBA3epZVOtbmhIpRA9nyyaQ1giHW9I0CljLpaTOdiTHFpqzsuhuGkFXXQv9mT212Z_mDl4MvWsk86xvSJNDojHK_TQDP3fhly1jWPG5LoL-VbsVATh3HlXXCF1e3V_9e4hsDm7K0aXrbn7aBwVZKgGoxexZhfpVmpqEFpW56fh58-tLUXq5nIMVtgbJ9NQ_VdZ5YGKSFYA83zdyI-cjW9YGi9n5BDtMVzDIV5hyOihh3jL6"/>
+<div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md border border-outline-variant/40 px-3 py-1 rounded-full text-[10px] font-label-mono uppercase tracking-wider text-tertiary">Strategy</div>
+<div class="absolute top-3 right-3 bg-error-container/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-label-mono uppercase tracking-wider text-white">Hot</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-h2 text-lg mb-4 text-on-surface group-hover:text-secondary transition-colors">Arb Hunter X</h3>
+<div class="grid grid-cols-3 gap-2 mb-6 border-y border-outline-variant/20 py-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Win Rate</span>
+<span class="text-tertiary font-data-lg text-lg">59.2%</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">PF</span>
+<span class="text-tertiary font-data-lg text-lg">1.92</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Max DD</span>
+<span class="text-error font-data-lg text-lg">3.8%</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-data-lg text-2xl text-on-surface">59€</span>
+<button class="bg-transparent border border-secondary-container text-secondary hover:bg-secondary-container hover:text-white px-5 py-2 font-label-mono text-[11px] uppercase tracking-widest transition-all">Détails &amp; Achat</button>
+</div>
+</div>
+</div>
+<!-- Card 7 -->
+<div class="glass-card inner-glow flex flex-col group overflow-hidden hover:border-secondary-container/50 transition-all duration-300">
+<div class="aspect-[4/3] relative overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-500" data-alt="Technical candlesticks with Bollinger bands and stochastic oscillators displayed on a modern trading station terminal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFVm0IYHc888kfs9VD_pdv2EL9-vxa-DExw1lp3oNeZAypxDG_D8g4GIElb0Wc4e_cOZ8-Q5QePybmDkA5eZSv8_r4pUWzyLsIkZyut2Cnr1OWZjK5dLut0AFyPfVfWGHd3Cn1-1DXMUIPDd_r4Q75NpBwIifnHb9eH4T8m1-l1x4aQq_FbvVS_60oBWh3elpRDZzQHYaAjhUeOosQ8ki_CU6ZBG6aG-ZxxeslWJ553YwFy1elQLQ6PlVaXcSzzULabThkhudD-gCv"/>
+<div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md border border-outline-variant/40 px-3 py-1 rounded-full text-[10px] font-label-mono uppercase tracking-wider text-on-background">Indicator</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-h2 text-lg mb-4 text-on-surface group-hover:text-secondary transition-colors">Vol Grid 2.0</h3>
+<div class="grid grid-cols-3 gap-2 mb-6 border-y border-outline-variant/20 py-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Precision</span>
+<span class="text-on-surface font-data-lg text-lg">High</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Nodes</span>
+<span class="text-tertiary font-data-lg text-lg">256</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">CPU</span>
+<span class="text-tertiary font-data-lg text-lg">1%</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-data-lg text-2xl text-on-surface">19€</span>
+<button class="bg-transparent border border-secondary-container text-secondary hover:bg-secondary-container hover:text-white px-5 py-2 font-label-mono text-[11px] uppercase tracking-widest transition-all">Détails &amp; Achat</button>
+</div>
+</div>
+</div>
+<!-- Card 8 -->
+<div class="glass-card inner-glow flex flex-col group overflow-hidden hover:border-secondary-container/50 transition-all duration-300">
+<div class="aspect-[4/3] relative overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-500" data-alt="Macro view of a digital screen showing stock ticker codes and green percentage updates in a dark room environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqUn0msa3-h4pmg25LeHaxc0rOjEetzpBlIbrwQ0d3wBgNzjTEaZerCQ7zrbcfmQThfrbOTiL7VSowSthhxcW8KdDg9-tz9pQznkD49ukVul4VpZ_1_bA8Z4P2tE5SjGjkhvG7nMoIek-8Qw4RqHDLZy_1-SXz6jB62Vo9FiFmiPqoJIdYWmKlHa0-uhOcIWnelxLvjsk7NtT9yqXrClLBECIryU1BAJqK5hZmhE5ttcG6JPqt2az3I6YnyqAhIpVBdwsP2JFzLHQF"/>
+<div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md border border-outline-variant/40 px-3 py-1 rounded-full text-[10px] font-label-mono uppercase tracking-wider text-tertiary">Strategy</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<h3 class="font-h2 text-lg mb-4 text-on-surface group-hover:text-secondary transition-colors">Flash Reversal</h3>
+<div class="grid grid-cols-3 gap-2 mb-6 border-y border-outline-variant/20 py-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Win Rate</span>
+<span class="text-tertiary font-data-lg text-lg">61.5%</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">PF</span>
+<span class="text-tertiary font-data-lg text-lg">2.05</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-mono text-on-primary-container uppercase">Max DD</span>
+<span class="text-error font-data-lg text-lg">5.5%</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-data-lg text-2xl text-on-surface">45€</span>
+<button class="bg-transparent border border-secondary-container text-secondary hover:bg-secondary-container hover:text-white px-5 py-2 font-label-mono text-[11px] uppercase tracking-widest transition-all">Détails &amp; Achat</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Pagination -->
+<div class="mt-16 flex items-center justify-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:border-secondary-container transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-secondary-container text-white font-label-mono">1</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:border-secondary-container transition-all font-label-mono">2</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:border-secondary-container transition-all font-label-mono">3</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant/30 text-on-surface-variant hover:border-secondary-container transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-900 bg-slate-950">
+<div class="flex flex-col md:flex-row justify-between items-start gap-8 px-8 py-12 max-w-screen-2xl mx-auto">
+<div class="max-w-md">
+<span class="text-lg font-black text-slate-200 mb-4 block">TradeFlow</span>
+<p class="font-['Space_Grotesk'] font-light text-slate-500 text-sm leading-relaxed">
+                    © 2024 TradeFlow. High-performance Pine Script systems. Financial Disclaimer: Trading involves significant risk of loss and is not suitable for all investors.
+                </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-4">
+<a class="font-['Space_Grotesk'] font-light text-slate-500 hover:text-blue-400 transition-all text-sm" href="#">Marketplace</a>
+<a class="font-['Space_Grotesk'] font-light text-slate-500 hover:text-blue-400 transition-all text-sm" href="#">Services</a>
+<a class="font-['Space_Grotesk'] font-light text-slate-500 hover:text-blue-400 transition-all text-sm" href="#">About</a>
+<a class="font-['Space_Grotesk'] font-light text-slate-500 hover:text-blue-400 transition-all text-sm" href="#">Blog</a>
+<a class="font-['Space_Grotesk'] font-light text-slate-500 hover:text-blue-400 transition-all text-sm" href="#">Terms</a>
+<a class="font-['Space_Grotesk'] font-light text-slate-500 hover:text-blue-400 transition-all text-sm" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+</body></html>
