@@ -153,16 +153,16 @@ POST /api/webhooks/stripe      → payment_intent.succeeded → crée License
 
 | PR | Contenu | Statut |
 |----|---------|--------|
-| **PR-001** | Socle : solution .NET, Docker, .gitignore, Next.js init | ⏳ |
-| **PR-002** | Domain layer : entités, value objects, domain events | ⏳ |
-| **PR-003** | Application layer : commands, queries, interfaces | ⏳ |
-| **PR-004** | Infrastructure : EF Core, migrations, services (Stripe, R2, Firebase) | ⏳ |
-| **PR-005** | API layer : controllers, Program.cs, auth Firebase | ⏳ |
-| **PR-006** | Frontend : layout, pages publiques (accueil, catalogue) | ⏳ |
-| **PR-007** | Frontend : espace client (licences, commandes, projets) | ⏳ |
-| **PR-008** | Frontend : admin dashboard | ⏳ |
-| **PR-009** | Intégration Stripe checkout + R2 upload/download | ⏳ |
-| **PR-010** | Tests + déploiement Railway (API) + Vercel (web) | ⏳ |
+| **PR-001** | Socle : solution .NET, Docker, .gitignore | ✅ 2026-04-29 |
+| **PR-002** | Domain layer : entités, value objects, domain events | ✅ 2026-04-29 |
+| **PR-003** | Application layer : commands, queries, interfaces | ✅ 2026-04-29 |
+| **PR-004** | Infrastructure : EF Core, migrations, services (Stripe, R2, Firebase) | ✅ 2026-04-29 |
+| **PR-005** | API layer : controllers, Program.cs, auth Firebase | ✅ 2026-04-29 |
+| **PR-006** | Frontend : Next.js init, layout, pages publiques (accueil, catalogue) | ⏳ À faire |
+| **PR-007** | Frontend : espace client (licences, commandes, projets) | ⏳ À faire |
+| **PR-008** | Frontend : admin dashboard | ⏳ À faire |
+| **PR-009** | Intégration Stripe checkout + R2 upload/download | ⏳ À faire |
+| **PR-010** | Tests + déploiement Railway (API) + Vercel (web) | ⏳ À faire |
 
 ---
 
