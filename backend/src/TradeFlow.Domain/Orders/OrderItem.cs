@@ -6,6 +6,7 @@ namespace TradeFlow.Domain.Orders;
 public sealed record OrderItemId(Guid Value)
 {
     public static OrderItemId New() => new(Guid.NewGuid());
+    public static OrderItemId From(Guid value) => new(value);
 }
 
 public class OrderItem : BaseEntity<OrderItemId>
