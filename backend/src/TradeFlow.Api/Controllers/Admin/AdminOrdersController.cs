@@ -1,0 +1,19 @@
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using TradeFlow.Application.Orders.Queries;
+
+namespace TradeFlow.Api.Controllers.Admin;
+
+[ApiController]
+[Route("api/admin/orders")]
+[Authorize(Policy = "AdminOnly")]
+public class AdminOrdersController(IMediator mediator) : ControllerBase
+{
+    [HttpGet]
+    public async Task<IActionResult> GetOrders([FromQuery] int page = 1, [FromQuery] int pageSize = 20, [FromQuery] string? status = null, CancellationToken ct = default)
+    {
+        var result = await mediator.Send(new GetAdminOrdersQuery(page, pageSize, status), ct);
+        return Ok(result);
+    }
+}
