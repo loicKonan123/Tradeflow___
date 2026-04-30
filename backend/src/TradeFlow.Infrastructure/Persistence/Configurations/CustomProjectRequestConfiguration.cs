@@ -17,12 +17,20 @@ public class CustomProjectRequestConfiguration : IEntityTypeConfiguration<Custom
         builder.Property(p => p.CustomerId)
             .HasConversion(id => id.Value, v => CustomerId.From(v))
             .HasColumnName("customer_id");
+        builder.Property(p => p.StrategyTitle).IsRequired().HasMaxLength(200).HasColumnName("strategy_title");
         builder.Property(p => p.Market).IsRequired().HasMaxLength(100).HasColumnName("market");
         builder.Property(p => p.Timeframe).IsRequired().HasMaxLength(50).HasColumnName("timeframe");
         builder.Property(p => p.EntryConditions).IsRequired().HasColumnName("entry_conditions");
         builder.Property(p => p.ExitConditions).IsRequired().HasColumnName("exit_conditions");
         builder.Property(p => p.RiskManagement).IsRequired().HasColumnName("risk_management");
+        builder.Property(p => p.Indicators).IsRequired().HasMaxLength(500).HasColumnName("indicators");
         builder.Property(p => p.AdditionalNotes).HasColumnName("additional_notes");
+        builder.Property(p => p.StrategyType).HasMaxLength(100).HasColumnName("strategy_type");
+        builder.Property(p => p.TradingViewChartUrl).HasMaxLength(500).HasColumnName("tradingview_chart_url");
+        builder.Property(p => p.BudgetRange).HasMaxLength(50).HasColumnName("budget_range");
+        builder.Property(p => p.DesiredDeadline).HasColumnName("desired_deadline");
+        builder.Property(p => p.AttachmentUrl).HasMaxLength(500).HasColumnName("attachment_url");
+        builder.Property(p => p.AttachmentName).HasMaxLength(255).HasColumnName("attachment_name");
         builder.Property(p => p.Status).HasConversion<string>().HasColumnName("status");
         builder.Property(p => p.QuotedPrice).HasColumnType("decimal(18,2)").HasColumnName("quoted_price");
         builder.Property(p => p.QuotedCurrency).HasMaxLength(3).HasColumnName("quoted_currency");
