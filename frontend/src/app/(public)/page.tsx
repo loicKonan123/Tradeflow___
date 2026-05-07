@@ -134,28 +134,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust Banner */}
-      <section className="py-10 border-y border-slate-900 bg-[#000f21]/50">
-        <div className="max-w-screen-2xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6 opacity-60 grayscale">
-          <div
-            className="uppercase tracking-widest text-xs text-[#c6c6cd]"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            TECH STACK:
-          </div>
-          <div className="flex gap-16 items-center flex-wrap justify-center">
-            {[".NET 9", "Stripe", "Firebase", "Cloudflare R2"].map((t) => (
-              <div
-                key={t}
-                className="text-2xl font-bold"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                {t}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Services Bento Grid */}
       <section className="py-16 px-8">

@@ -32,25 +32,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   }
 
   return (
-    <div className="min-h-screen bg-background trading-bg flex">
+    <div className="min-h-screen bg-background trading-bg flex pt-14">
       {/* Sidebar */}
       <aside className="w-64 shrink-0 border-r border-outline-variant/30 bg-surface-container-lowest/80 flex flex-col">
-        <div className="px-6 py-4 border-b border-outline-variant/30">
-          <Link
-            href="/"
-            className="text-xl font-bold tracking-tighter text-on-surface"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            TradeFlow
-          </Link>
-          <span
-            className="ml-2 text-[10px] uppercase tracking-widest text-secondary bg-secondary-container/20 px-2 py-0.5"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Admin
-          </span>
-        </div>
-
         <nav className="flex-1 px-3 py-4 space-y-1">
           {NAV.map((item) => {
             const active = item.exact
